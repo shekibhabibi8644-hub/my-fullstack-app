@@ -1,0 +1,38 @@
+<%- include('partials/head') %>
+
+<h2 class="text-2xl font-bold mb-4">Edit Resource</h2>
+
+<form method="POST" action="/resources/<%= item._id %>?_method=PUT">
+  <div class="mb-4">
+    <label class="block mb-2">Title</label>
+    <input type="text" name="title" value="<%= item.title %>" class="border p-2 w-full rounded" required>
+  </div>
+  
+  <div class="mb-4">
+    <label class="block mb-2">Author</label>
+    <input type="text" name="author" value="<%= item.author %>" class="border p-2 w-full rounded" required>
+  </div>
+  
+  <div class="mb-4">
+    <label class="block mb-2">Category</label>
+    <input type="text" name="category" value="<%= item.category %>" class="border p-2 w-full rounded" required>
+  </div>
+  
+  <div class="mb-4">
+    <label class="block mb-2">Content</label>
+    <textarea name="content" class="border p-2 w-full rounded" rows="5" required><%= item.content %></textarea>
+  </div>
+  
+  <div class="mb-4">
+    <label class="inline-flex items-center">
+      <input type="checkbox" name="published" value="true" <%= item.published ? 'checked' : '' %> class="mr-2">
+      Published
+    </label>
+  </div>
+  
+  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
+  <a href="/resources" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</a>
+</form>
+
+</body>
+</html>

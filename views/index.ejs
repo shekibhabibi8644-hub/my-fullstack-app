@@ -1,0 +1,28 @@
+<%- include('partials/head') %>
+
+<h2 class="text-2xl font-bold mb-4">Resources</h2>
+
+<a href="/resources/new" class="bg-green-500 text-white px-4 py-2 rounded mb-4 inline-block">Create New</a>
+
+<div class="grid gap-4">
+  <% items.forEach(item => { %>
+    <div class="border p-4 rounded shadow">
+      <h3 class="text-xl font-bold"><%= item.title %></h3>
+      <p>Author: <%= item.author %></p>
+      <p>Category: <%= item.category %></p>
+      <p>Content: <%= item.content %></p>
+      <p>Published: <%= item.published ? 'Yes' : 'No' %></p>
+      
+      <div class="mt-2">
+        <a href="/resources/<%= item._id %>/edit" class="bg-yellow-500 text-white px-3 py-1 rounded">Edit</a>
+        
+        <form method="POST" action="/resources/<%= item._id %>?_method=DELETE" style="display: inline;">
+          <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded" onclick="return confirm('Delete?')">Delete</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
+</body>
+</html>

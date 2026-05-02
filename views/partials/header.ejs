@@ -1,0 +1,9 @@
+<nav class="bg-blue-600 p-4 text-white flex justify-between">
+  <h1 class="text-xl">My App</h1>
+  <div>
+    <% if (typeof user !== 'undefined' && user) { %>
+      <span><%= user.username %></span>
+      <a href="/logout" class="ml-4 bg-red-500 px-3 py-1 rounded">Logout</a>
+    <% } %>
+  </div>
+</nav>
